@@ -1,0 +1,48 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block active3 %}
+active
+{% endblock active3 %}
+{% block content %}
+
+	<div class="container mb-4">
+		<h1 style="margin-top: 80px; text-align: center;">Our Services</h1>
+		<p style="font-size: 18px;">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+		</p>
+		<div class="row" style="text-align: center;">
+			<div class="col-md-4 col-sm-6 col-xs-6 col-lg-4 service mt-5">
+				<img src="{% static 'images/mmdev.png' %}">
+				<em><h4>Mobile Development</h4></em>
+                
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6 col-lg-4 service mt-5">
+				<img src="{% static 'images/ddev.jpg' %}">
+				<em><h4>Desktop Development</h4></em>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6 col-lg-4 service mt-5">
+				<img src="{% static 'images/gdev.png' %}">
+				<em><h4>Game Development</h4></em>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6 col-lg-4 service mt-5">
+				<img src="{% static 'images/wwdev.png' %}">
+				<em><h4>Web Development</h4></em>
+			</div>
+			{% comment %} <div class="col-md-4 col-sm-6 col-xs-6 col-lg-4 service">
+				<img src="">
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6 col-lg-4 service">
+				<img src="">
+			</div> {% endcomment %}
+
+		</div>
+	</div>    
+
+{% endblock content %}
