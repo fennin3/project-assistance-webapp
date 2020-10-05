@@ -37,7 +37,7 @@
           </li>
            <li class="nav-item {% block active2 %}
           {% endblock active2 %}">
-            <a class="nav-link" href="#">Projects </span></a>
+            <a class="nav-link" href="{% url 'projects' %}">Projects </span></a>
           </li>
           </li>
            <li class="nav-item {% block active3 %}
@@ -51,6 +51,10 @@
          
           <li class="nav-item ">
             <a class="nav-link" href="#about">About Us </span></a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'testify' %}">Testify</span></a>
           </li>
           
           
