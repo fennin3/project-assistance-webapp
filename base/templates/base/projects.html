@@ -8,11 +8,11 @@ active
 <div class="container mb-4">
 	<h3 class="top_margin">Sample Projects</h3>
 	<hr>
-	<div class="row">
+	<div class="row" style="margin-bottom: 130px;" >
     {% for project in projects %}
     
     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-3">
-        <div class="card" style="width: 22rem;">
+        <div class="card mr-auto ml-auto" style="width: 22rem;">
             <img src="{{project.thumnail.url}}" class="card-img-top" alt="">
             <div class="card-body">
             <p class="card-text">{{project.title}}</p>
