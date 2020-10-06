@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import MessageForm, TestimonyForm
 from .models import Project, Testimony
+from django.contrib import messages
 
 
 def home(request):
@@ -63,16 +64,21 @@ def projects(request):
 def send_message(request):
     if request.method == "POST":
         form = MessageForm(request.POST)
+        fname = request.POST.get('first_name')
+        lname = request.POST.get('last_name')
         if form.is_valid():
             form.save()
+            messages.success(request, f"Hello {fname} {lname}, thank you for reaching out to us. We will try our best to respond as soon as possible.")
             return redirect('home')
 
 def testify(request):
     testimonies = Testimony.objects.all()
     if request.method == "POST":
         form = TestimonyForm(request.POST)
+        name = request.POST.get('fullname')
         if form.is_valid():
             form.save()
+            messages.success(request, f"Hello {name}, thank you for testifying. This means a great deal to us.")
             return redirect('home')
     else:
         form = TestimonyForm()

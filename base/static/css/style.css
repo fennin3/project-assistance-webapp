@@ -1,8 +1,11 @@
 .facts{
 	height: 70px;
   width: 60px;
-  min-width: 40;
-  min-height: 50
+}
+
+.facts2{
+	height: 40px;
+  width: 30px;
 }
 
 .fa{
@@ -51,6 +54,11 @@
 .service img{
   height: 90px;
   width: 60px;
+}
+
+.service2 img{
+  height: 80px;
+  width: 55px;
 }
 
 .top_margin{

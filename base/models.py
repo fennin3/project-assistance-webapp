@@ -4,7 +4,7 @@ class Message(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
-    tel_number = models.IntegerField(blank=True, null=True)
+    tel_number = models.CharField(max_length=10)
     message = models.TextField(blank=True, null=True)
     date_of_request = models.DateTimeField(auto_now_add=True)
 

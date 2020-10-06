@@ -54,7 +54,7 @@ active
 
     <!-- FACTS AND STATS -->
 
-    <div class="container mt-5" style="margin-bottom: 150px;">
+    <div class="container mt-5 d-none d-sm-block" style="margin-bottom: 150px;">
         
         <div class="row">
             <div class="col" style="text-align: center;">
@@ -141,7 +141,7 @@ active
             {% for project in projects %}
             
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-4">
-                <div class="card ml-auto mr-auto" style="width: 20rem;">
+                <div class="card ml-auto mr-auto shadow-lg" style="width: 20rem;">
                     <img src="{{project.thumnail.url}}" class="card-img-top" alt="">
                     <div class="card-body">
                     <p class="card-text">{{project.title}}</p>
@@ -189,7 +189,197 @@ active
 
         <div class="contact_form mt-4 pt-2">
              <h4 style="text-align: center;" class="mb-5 mt-1">Contact Us</h4>
-             <form method="POST" action="{% url 'send_message' %}" class="p-3 card shadow-lg">
+             <form method="POST" action="{% url 'send_message' %}" class="p-3 card shadow-lg m-3">
+              {% csrf_token %}
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  
+                  {{form.first_name|as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                  
+                  {{form.last_name|as_crispy_field}}
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-6">
+                  
+                  {{form.email|as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                  
+                  {{form.tel_number|as_crispy_field}}
+                </div>
+              </div>
+
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                   
+                  {{form.message|as_crispy_field}}
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Send Message" class="btn submit_btn btn-md text-white">
+                </div>
+              </div>
+
+  
+            </form> 
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+                   <!-- MOBILE VIEW -->
+
+    <div class="container mt-5 d-block d-sm-none" style="margin-bottom: 150px;">
+        
+        <div class="row">
+            <div class="col" style="text-align: center;">
+                <img class="facts2 mb-3" src="{% static 'images/project.png' %}">
+                <h6>100</h6>
+                <h6>Completed Projects</h6>
+            </div>
+            <div class="col" style="text-align: center;">
+                <img class="facts2 mb-3" src="{% static 'images/customers.jpg' %}">
+                <h6>80</h6>
+                <h6>Satisfied Customers</h6>
+
+            </div>
+            
+        </div>
+        <hr>
+
+
+        <div class="container mt-4 pb-3" id="about" style="text-align: center;">
+            <h5>About Us</h5>
+            <p style="text-align: justify; font-size: 14px;">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.    
+                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   
+            </p>
+            
+        </div>
+        <hr>
+        
+        <div class="container mt-4 pb-3" style="text-align: center;">
+            <h5>Our Services</h5>
+            <p style="text-align: justify; font-size: 14px;">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                
+            </p>
+
+            <div class="row" style="text-align: center;">
+            <div class="col-md-4 col-sm-6 col-xs-6 col-lg-4 service2 mt-5">
+                <img src="{% static 'images/mmdev.png' %}">
+                <em><h6>Mobile Development</h6></em>
+                
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-lg-4 service2 mt-5">
+                <img src="{% static 'images/ddev.jpg' %}">
+                <em><h6>Desktop Development</h6></em>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-lg-4 service2 mt-5">
+                <img src="{% static 'images/gdev.png' %}">
+                <em><h6>Game Development</h6></em>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-lg-4 service2 mt-5">
+                <img src="{% static 'images/wwdev.png' %}">
+                <em><h6>Web Development</h6></em>
+            </div>
+           
+
+        </div>
+        </div>
+        <hr>
+
+
+
+
+
+
+
+        <!-- Projects -->
+
+        <div class="container mt-4 pb-2" style="text-align: center;">
+            <h5 class="mb-3">Sample Projects</h5>
+            <div class="row">
+            {% for project in projects %}
+            
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-4">
+                <div class="card ml-auto mr-auto shadow-lg" style="width: 18rem;">
+                    <img src="{{project.thumnail.url}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                    <p class="card-text">{{project.title}}</p>
+                    <small><em><a href="{{project.video_link}}" style="text-decoration: none;">Watch The Demo Video</a></em></small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        
+            </div>
+            <a href="{% url 'projects' %}" style="text-decoration: none;"><strong class="title_a"><em>Browse Projects</em></strong></a>
+        </div>
+        <hr>
+
+
+
+
+        <!-- Testimonies -->
+        
+
+        <div class="container mt-4 pb-3" style="text-align: center;">
+            <h5>Testimonies</h5>
+            <div class="row mb-3">
+            {% for test in testimonies %}
+                <div class="col-lg-4 col-xs-12 col-md-6 col-sm-12 mb-3 card shadow-lg p-1" style="border-top-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <div>
+                        <p style="font-size: 14px;"><strong>{{test.fullname}}<br><em>{{test.email}}</em><br><small>{{test.date}}</small></strong></p>
+                        <p style="font-size: 14px;">{{test.feedback}}</p>
+                    </div>
+                </div>   
+            
+            {% endfor %}
+            
+            </div>
+            <a href="{% url 'testify' %}" style="text-decoration: none;"><strong class="title_a"><em>Browse Testimonies</em></strong></a>
+
+        </div>
+        <hr>
+
+
+
+ 
+        <!-- CONTACT FORM -->
+
+        <div class="contact_form mt-4 pt-1">
+             <h5 style="text-align: center;" class="mb-4 mt-1">Contact Us</h5>
+             <form method="POST" action="{% url 'send_message' %}" class="p-3 card shadow-lg mr-2 ml-2" style="font-size: 14px;">
               {% csrf_token %}
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">

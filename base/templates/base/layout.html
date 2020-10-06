@@ -30,7 +30,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto ml-auto" style="font-size: 18px; font-weight: bold;">
+        <ul class="navbar-nav mr-auto ml-auto" style="font-size: 17px; font-weight: bold;">
           <li class="nav-item {% block active %}
           {% endblock active %}">
             <a class="nav-link " href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
@@ -67,12 +67,58 @@
     </nav>
 
 
-{% block content %}
-{% endblock content %}
 
 
 
-    <footer style=" background-color: #212529; color: white; text-align: center;" class="pt-3 pb-2">
+
+
+
+  <div>
+   {% if messages %}
+
+		
+			
+			{% for message in messages %}
+			<div class="alert alert-{{ message.tags }}" role="alert" style="text-align: center; margin-top: 60px;">
+				{{ message }}
+				
+			</div>
+
+
+			{% endfor %}
+		
+				
+		</ul>
+
+
+
+		{% endif %}
+
+
+
+  {% block content %}
+  {% endblock content %}
+  </div>
+
+
+    <!-- FOOTER -->
+
+
+
+
+    <footer style=" background-color: #212529; color: white; text-align: center; " class="pt-3 pb-2 d-none d-sm-block">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-youtube"></a>
+            <p>Copyright &copy;2020 All rights reserved | RenninTech</p>
+
+    </footer>
+
+
+
+    <footer style=" background-color: #212529; color: white; text-align: center; font-size: 9px;" class="pt-3 pb-2 d-block d-sm-none">
             <a href="#" class="fa fa-facebook"></a>
             <a href="#" class="fa fa-twitter"></a>
             <a href="#" class="fa fa-linkedin"></a>
